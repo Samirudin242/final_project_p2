@@ -1,0 +1,30 @@
+<%- include('partials/header')  %>
+
+<div class="container">
+    <br>
+    <h2 class="text-center">Course List</h2>
+    <br>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Numbers of Student</th>
+                <th scope="col" colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(item =>{ %>
+                <tr>
+                    <td><%= item.name %></td>
+                    <td><%= item.location %></td>
+                    <td><%= item.Students ? item.Students.length : 0 %> Student</td>
+                    <td><a href="/course/<%= item.id %>/delete">Delete</a>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    &nbsp;<a class="btn btn-primary" href="/course/add" role="button">Add Course</a>
+</div>
+
+<%- include('partials/footer')  %>
